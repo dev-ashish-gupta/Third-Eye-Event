@@ -5,7 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const Heading = () => {
-  return <h1 className="text-4xl sm:text-5xl font-semibold mb-8">About Us</h1>;
+  return (
+    <h1 className="text-4xl sm:text-5xl font-semibold mb-8">Founder</h1>
+  );
 };
 
 // Helper function to split text into individual words and wrap them in spans with spacing
@@ -21,8 +23,9 @@ const wrapWordsInSpans = (text) => {
   ));
 };
 
-function About() {
+function Founder() {
   const pTagsRef = useRef([]);
+  const imageRef = useRef(null); // Reference for the image
 
   useEffect(() => {
     pTagsRef.current.forEach((el, index) => {
@@ -53,17 +56,34 @@ function About() {
         }
       );
     });
+
+    // Animate image opacity on scroll
+    gsap.fromTo(
+      imageRef.current,
+      { opacity: 0 }, // Start with opacity 0
+      {
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 75%",
+          end: "top 25%",
+          scrub: true,
+          markers: false, // Remove markers for production
+        },
+      }
+    );
   }, []);
 
   return (
     <section
       id="about"
-      className="text-white py-16 h-auto flex justify-center items-center bg-black relative"
+      className="text-white py-16 flex justify-center items-center bg-black relative"
     >
-      <div className="container flex justify-center items-center px-4 py-10 text-center w-[95%] sm:w-[95%] md:w-[95%]     rounded-2xl relative">
-        <div className=" mx-auto space-y-8 w-3/4">
+      <div className="container flex flex-col md:flex-row justify-center items-center px-4 py-10  text-center w-full rounded-2xl relative">
+        {/* Left Section: Text Content */}
+        <div className="flex text-left flex-col w-full md:w-1/2 p-4 relative z-10">
           <Heading />
-
           {/* First Paragraph */}
           <p
             ref={(el) => (pTagsRef.current[0] = el)}
@@ -94,14 +114,32 @@ function About() {
             )}
           </p>
         </div>
+
+        {/* Right Section: Image Content */}
+        <div className="flex justify-center items-center w-full md:w-1/2 p-4 relative z-10">
+          <img
+            ref={imageRef}
+            src="/Founder.jpg" // Replace with your image path
+            alt="Event Planning"
+            className="w-full h-auto object-cover rounded-2xl" // Adjust styling as needed
+          />
+        </div>
       </div>
-      {/* Animation */}
-      <img src="/FooterAssests_1.png" className="absolute left-20 top-10 w-[7vw]" />
-      <img src="/FooterAssests_2.jpg" className="absolute md:right-20  right-10  top-1/2 w-[7vw]" />
-      <img src="/FooterAssests_3.png" className="absolute left-20 bottom-10 w-[7vw]" />
-      
+
+      <img
+        src="/FooterAssests_1.png"
+        className="absolute right-20 top-10 w-[7vw]"
+      />
+      <img
+        src="/FooterAssests_2.jpg"
+        className="absolute md:right-20  right-10  bottom-10 w-[7vw]"
+      />
+      <img
+        src="/FooterAssests_3.png"
+        className="absolute -left-10 bottom-1/2 w-[7vw] z-5"
+      />
     </section>
   );
 }
 
-export default About;
+export default Founder;

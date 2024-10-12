@@ -1,3 +1,12 @@
+import React from "react";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaYoutube,
+} from "react-icons/fa"; // Importing social icons
+
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-300 py-12 px-4">
@@ -12,45 +21,8 @@ export default function Footer() {
             that your site becomes a regular stop in their daily browsing.
           </p>
           <p className="text-sm">© 2015 Fresh, All Rights Reserved</p>
-          <div className="flex space-x-4 mt-4"></div>
         </div>
 
-        {/* Show Quick Links section only on medium and larger screens */}
-        <div className="hidden md:block">
-          <h2 className="text-xl font-semibold mb-4 relative">
-            Quick Links
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-yellow-400"></span>
-          </h2>
-          <ul className="space-y-2">
-            <li>
-              <a href="#" className="hover:text-white">
-                About Company
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white">
-                Latest Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white">
-                Popular Works
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white">
-                Blog & News
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-white">
-                Contact us
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Show Services section only on medium and larger screens */}
         <div className="hidden md:block">
           <h2 className="text-xl font-semibold mb-4 relative">
             Services
@@ -84,6 +56,68 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+
+        {/* Social Links Section */}
+        <div className="w-full md:w-1/4 mb-6 md:mb-0">
+          <h2 className="text-xl font-semibold mb-4 relative">
+            Social Links
+            <span className="absolute bottom-0 left-0 w-12 h-1 bg-yellow-400"></span>
+          </h2>
+          <ul className="flex space-x-6">
+            <li>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                <FaFacebook size={24} />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                <FaTwitter size={24} />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                <FaInstagram size={24} />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                <FaLinkedin size={24} />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                <FaYoutube size={24} />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Services Section */}
       </div>
 
       {/* Bottom navigation bar */}

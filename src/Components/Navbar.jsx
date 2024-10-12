@@ -10,11 +10,13 @@ function Navbar() {
   };
 
   return (
-    <nav className=" px-4 py-3 shadow-2xl">
+    <nav className=" px-10 py-3 shadow-2xl">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-bold">Logo</h1>
 
+        <a href="/">
+          <img src="/Logo.png" className="w-16 ml-5" />
+        </a>
         {/* Hamburger Menu for Mobile */}
         <div className="md:hidden">
           {isOpen ? (
@@ -25,43 +27,64 @@ function Navbar() {
         </div>
 
         {/* Links for Larger Screens */}
-        <ul className="hidden md:flex space-x-10 font-medium text-[#171717]">
+        <ul className="hidden ml-12 md:flex space-x-10 font-medium text-[#171717]">
           <li>
-            <a href="#home" className="text-gray-700 border-b-2 border-transparent hover:border-white">
+            <a
+              href="#home"
+              className="text-gray-700 border-b-2 border-transparent hover:border-white"
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#about" className="text-gray-700 border-b-2 border-transparent hover:border-white">
+            <a
+              href="#about"
+              className="text-gray-700 border-b-2 border-transparent hover:border-white"
+            >
               About
             </a>
           </li>
           <li>
-            <a href="#expertise" className="text-gray-700 border-b-2 border-transparent hover:border-white">
+            <a
+              href="#expertise"
+              className="text-gray-700 border-b-2 border-transparent hover:border-white"
+            >
               Portfolio
             </a>
           </li>
           <li>
-            <a href="#events" className="text-gray-700 border-b-2 border-transparent hover:border-white">
+            <a
+              href="#events"
+              className="text-gray-700 border-b-2 border-transparent hover:border-white"
+            >
               Events
             </a>
           </li>
           <li>
-            <a href="#blog" className="text-gray-700 border-b-2 border-transparent hover:border-white">
+            <a
+              href="#blog"
+              className="text-gray-700 border-b-2 border-transparent hover:border-white"
+            >
               Blog
             </a>
           </li>
         </ul>
 
         {/* Contact Button */}
-        <button className="hidden md:block px-4 py-2 border rounded-full bg-[#171717] text-white font-semibold">
+        <a
+          href="#contact"
+          className="hidden md:block px-4 py-2 border rounded-full bg-[#171717] text-white font-semibold"
+        >
           Contact Us
-        </button>
+        </a>
       </div>
 
       {/* Overlay for Mobile Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={toggleMenu} />
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-40"
+          onClick={toggleMenu}
+        />
       )}
 
       {/* Mobile Menu */}
@@ -75,27 +98,47 @@ function Navbar() {
         </div>
         <ul className="flex flex-col items-center space-y-6 py-6 ">
           <li>
-            <a href="#home" onClick={toggleMenu} className="border-b border-white pb-1">
+            <a
+              href="#home"
+              onClick={toggleMenu}
+              className="border-b border-white pb-1"
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#about" onClick={toggleMenu} className="border-b border-white pb-1">
+            <a
+              href="#about"
+              onClick={toggleMenu}
+              className="border-b border-white pb-1"
+            >
               About
             </a>
           </li>
           <li>
-            <a href="#expertise" onClick={toggleMenu} className="border-b border-white pb-1">
+            <a
+              href="#expertise"
+              onClick={toggleMenu}
+              className="border-b border-white pb-1"
+            >
               Portfolio
             </a>
           </li>
           <li>
-            <a href="#events" onClick={toggleMenu} className="border-b border-white pb-1">
+            <a
+              href="#events"
+              onClick={toggleMenu}
+              className="border-b border-white pb-1"
+            >
               Events
             </a>
           </li>
           <li>
-            <a href="#blog" onClick={toggleMenu} className="border-b border-white pb-1">
+            <a
+              href="#blog"
+              onClick={toggleMenu}
+              className="border-b border-white pb-1"
+            >
               Blog
             </a>
           </li>

@@ -9,6 +9,7 @@ import Testimonials from './Components/Testimonial.jsx';
 import Blog from './Components/BlogSection.jsx';
 import Contact from './Components/Contact.jsx';
 import Footer from './Components/Footer.jsx';
+import Founder from './Components/Founder.jsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Team />
       <Testimonials />
       <Blog />
+      <Founder />
       <Contact />
       <Footer />
     </div>

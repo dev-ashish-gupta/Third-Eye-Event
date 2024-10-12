@@ -43,7 +43,7 @@ function Blog() {
   ];
 
   return (
-    <section id="videos" className="py-20 space-y-5">
+    <section id="blog" className="py-20 space-y-5">
       <h1 className="text-4xl font-bold text-center">Blog Post's</h1>
       <p className="text-sm text-[#A7A7A7] text-center">
         We Specialize in Creating Great Quality Designs <br />
@@ -79,7 +79,9 @@ function Blog() {
               <span className="inline-block bg-yellow-400 text-white text-sm font-semibold px-2 rounded mb-2">
                 Third Eye Events
               </span>
-              <h3 className="text-xl text-black font-semibold">{video.title}</h3>
+              <h3 className="text-xl text-black font-semibold">
+                {video.title}
+              </h3>
               <p className="text-gray-600">{video.description}</p>
             </div>
           </div>

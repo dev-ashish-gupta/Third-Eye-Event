@@ -1,9 +1,13 @@
 import gsap from "gsap";
 import { useRef, useEffect } from "react";
+import { FaArrowDown } from "react-icons/fa6";
 function Hero() {
   const MainHeading = useRef(null);
   const SpanElement = useRef(null);
   const pot = useRef(null);
+  const arrow = useRef(null);
+  const UPDOWN = useRef(null);
+  const Pink = useRef(null);
   const ElementDiv = useRef(null);
   const Button = useRef(null);
 
@@ -15,7 +19,7 @@ function Hero() {
       duration: 1.5, // Extended duration for a smoother fade-in
     })
       // Animate the yellow span's width from 0 to 100% with smooth easing
-      .to(SpanElement.current , {
+      .to(SpanElement.current, {
         width: "100%",
         duration: 1,
         y: 10,
@@ -26,16 +30,46 @@ function Hero() {
         rotate: -5,
         duration: 0.4, // Short duration for a quick rotation
         ease: "power2.inout",
+      })
+      .to(UPDOWN.current, {
+        y: -20,
+        repeat: -1,
+        duration: 1,
+        yoyo: true,
+        ease: "power1.inOut",
+      })
+      .to(Pink.current, {
+        scale: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      })
+      .to(pot.current, {
+        rotate: -15,
+        repeat: -1,
+        duration: 1.2,
+        yoyo: true,
+        ease: "power1.inOut",
+      })
+      .to(arrow.current, {
+        rotate: 10,
+        repeat: -1,
+        duration: 1.2,
+        yoyo: true,
+        ease: "power1.inOut",
       });
   }, []);
 
   return (
-    <section className="relative w-full bg-white py-16 md:flex items-center justify-center h-screen">
+    <section
+      id="home"
+      className="relative w-full bg-white py-16 md:flex items-center justify-center h-screen"
+    >
       <div className="flex justify-center items-center md:hidden">
         <div className="text-white p-6 mx-auto">
           <div className="flex items-center ml-8  mb-4">
             <img
-              src="/public/man.png"
+              src="/Man.png"
               alt="Profile picture"
               className="rounded-full w-16 h-16 absolute  "
             />
@@ -76,8 +110,11 @@ function Hero() {
           Everyday
         </h1>
         <div>
-          <p className="text-base text-gray-500">
-            <span className="bg-yellow-500 text-white px-2 rounded-full">50+</span> Events Completed
+          <p className="text-base text-gray-500 md:hidden">
+            <span className="bg-yellow-500 text-white px-2 rounded-full">
+              50+
+            </span>{" "}
+            Events Completed
           </p>
         </div>
 
@@ -97,25 +134,31 @@ function Hero() {
         ref={ElementDiv}
         className="absolute z-5 container mx-auto w-3/4 h-3/4 opacity-0 hidden md:flex "
       >
-        <div className="absolute top-0 left-0 w-64 h-64   ">
-          <img src="/public/Herosection_1.png" />
+        <div ref={UPDOWN} className="absolute top-0 left-0 w-64 h-64   ">
+          <img src="/Herosection_1.png" />
           <img
-            src="/public/Herosection_assest.png"
-            className="absolute top-0 animate-pulse"
+            ref={Pink}
+            src="/Herosection_assest.png"
+            className="absolute top-0 "
           />
         </div>
         <div ref={pot} className="absolute bottom-0 right-0 w-64 h-64  ">
-          <img src="/public/Herosection_4.png" />
+          <img src="/Herosection_4.png" />
         </div>
         <div className="absolute top-0 right-0">
           <div className="text-white p-6 mx-auto">
             <div className="flex items-center space-x-4 mb-4">
               <img
-                src="/public/man.png"
+                src="/Man.png"
                 alt="Profile picture"
-                className="rounded-full w-16 h-16 absolute left-0"
+                className="rounded-full w-16 h-16 absolute left-0 z-10"
               />
-              <div className="border-yellow-400 border rounded-full p-5 w-14 h-14 flex items-center justify-center"></div>
+              <div
+                ref={arrow}
+                className="border-yellow-400 border text-yellow-300 rounded-full -rotate-90  w-14 h-14 flex items-center justify-center"
+              >
+                <FaArrowDown size={30} />
+              </div>
             </div>
             <h2 className="text-xs text-left font-bold text-gray-500">
               Welcome to Third Eye Event
@@ -126,7 +169,7 @@ function Hero() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-32 h-32">
-          <img src="/public/950+.png" />
+          <img src="/950+.png" />
           <p className="text-xs text-gray-500">Events Completed</p>
         </div>
       </div>
